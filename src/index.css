@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ── Reset & Base ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Serif Display', Georgia, serif;
+  background: #0a0a0f;
+  color: #e8e6f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #00f5c4;
+  border-radius: 2px;
+}
+
+/* ── Custom Cursor ── */
+.cursor-dot {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00f5c4;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+/* ── Navigation ── */
+.nav-link {
+  position: relative;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  transition: color 0.3s;
+}
+.nav-link.active,
+.nav-link:hover {
+  color: #00f5c4;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #00f5c4;
+  transition: width 0.3s;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Tags ── */
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  border: 1px solid;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Skill Pills ── */
+.skill-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background: #16161f;
+  border: 1px solid #2a2a3a;
+  transition: all 0.25s;
+  cursor: default;
+}
+.skill-pill:hover {
+  border-color: #00f5c4;
+  color: #00f5c4;
+  background: #0d1f1c;
+}
+
+/* ── Project Cards ── */
+.project-card {
+  background: #111118;
+  border: 1px solid #1e1e2e;
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 0.35s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 12px;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #2e2e4e;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Experience Timeline ── */
+.exp-item {
+  border-left: 2px solid #1e1e2e;
+  padding-left: 28px;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.exp-item:hover {
+  border-color: #00f5c4;
+}
+.exp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00f5c4;
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  box-shadow: 0 0 12px #00f5c460;
+}
+
+/* ── Buttons ── */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 12px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: none;
+}
+.btn-primary {
+  background: #00f5c4;
+  color: #0a0a0f;
+  font-weight: 500;
+}
+.btn-primary:hover {
+  background: #00ddb0;
+  box-shadow: 0 0 24px #00f5c440;
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: #e8e6f0;
+  border: 1px solid #2a2a3a;
+}
+.btn-ghost:hover {
+  border-color: #00f5c4;
+  color: #00f5c4;
+}
+
+/* ── Typography ── */
+.glow-text {
+  background: linear-gradient(135deg, #00f5c4 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title {
+  font-size: clamp(52px, 9vw, 110px);
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* ── Layout ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  .hero-title {
+    font-size: clamp(42px, 12vw, 80px) !important;
+  }
+}
